@@ -33,6 +33,20 @@
     color: #fff;
     padding-top: 5%;
 }
+.img-fluid{
+    opacity:0.6;
+    width:
+}
+.centered{
+    position:absolute;
+    top:50%;
+    bottom:50%;
+    text-align: justify;
+    font-size:70px;
+    color:white;
+    font-style: normal;
+
+}
 .main-title{
     font-size: 40px;
     font-weight: 600;
@@ -41,3 +55,34 @@
 .bottom-img{
     width: 100%;
 }
+form.enrollment input[type=text] {
+    padding: 15px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: center;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  form.enrollment button {
+    float: center;
+    padding: 15px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  form.enrollment button:hover {
+    background: #0b7dda;
+  }
+  
+  /* Clear floats */
+  form.enrollment::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
