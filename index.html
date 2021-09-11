@@ -68,13 +68,73 @@
         </svg>
     </section>
     <div class="sub-container">
-        <form class="enrollment">
+        <form name="myForm"class="enrollment" onsubmit="return validateForm()">
             <input type="text" placeholder="enter.." name="enter">
             <button type="submit"><i class="fa fa-search"></i></button>
             <img src="search" />
         </form>
 
     </div>
+    
+    <script>
+        function validateForm() {
+          let x = document.forms["myForm"]["enter"].value;
+          if (x == "") {
+            alert("Name must be filled out");
+            return false;
+          }
+          else { buttonclickhandler(x);return false;  }
+        }
+        function buttonclickhandler(x) {
+  console.log("a");
+  // Instantiate an new XHR Object
+  const xhr = new XMLHttpRequest();
+
+  // Open an obejct (GET/POST, PATH,
+  // ASYN-TRUE/FALSE)
+  xhr.open("GET", 
+"https://api.ipuresults.xyz/v1/results/".x, true);
+
+
+
+
+  // When response is ready
+  xhr.onload = function () {
+      if (this.status === 200) {
+
+          // Changing string data into JSON Object
+          obj = JSON.parse(this.responseText);
+alert(obj.data);
+          // Getting the ul element
+        //   let list = document.getElementById("list");
+        //   str = ""
+        //   for (key in obj.data) {
+        //       str += `<li>${obj.data[key].employee_name}</li>`;
+        //   }
+        //   list.innerHTML = str;
+      }
+      else {
+          console.log("File not found");
+      }
+  }
+
+  // At last send the request
+  xhr.send();
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+integrity=
+"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+crossorigin="anonymous">
+</script>
+
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+integrity=
+"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+crossorigin="anonymous">
+</script>
+            
 </body>
 
 </html>
