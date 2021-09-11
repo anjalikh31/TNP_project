@@ -29,17 +29,84 @@
 .banner {
   background-image: linear-gradient(to right, #0066b2, #5072a7);
   color: #fff;
-  padding-top: 5%;
+
 }
 .img-fluid {
-  opacity: 0.6;
+  opacity: 0.9;
+  mix-blend-mode: soft-light;
+}
+.search {
+  width: 100%;
+  border: solid;
+  margin-bottom: auto;
+  margin-top: 20px;
+  height: 50px;
+  background-color: #fff;
+  padding: 7px;
+  border-radius: 15px
+}
+.search-input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  margin-top: 5px;
+  caret-color: transparent;
+  line-height: 20px;
+  transition: width 0.4s linear
+}
+.search .search-input {
+  padding: 0 10px;
+  width: 100%;
+  caret-color: #536bf6;
+  font-size: 19px;
+  font-weight: 300;
+  color: black;
+  transition: width 0.4s linear
+}
+
+.search-icon {
+  height: 34px;
+  width: 34px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #536bf6;
+  font-size: 10px;
+  bottom: 30px;
+  position: relative;
+  border-radius: 5px
+}
+
+.search-icon:hover {
+  color: #fff !important
+}
+
+a:link {
+  text-decoration: none
+}
+span.stretch {
+ 
+  display: inline-block;
+
+  -webkit-transform: scale(2, 1);
+
+  -moz-transform: scale(2, 1);
+
+  -o-transform: scale(2, 1);
+
+  transform: scale(2, 1);
+
 }
 .centered {
-  position: absolute;
-  top: 50%;
-  bottom: 50%;
+  margin-left: 32%;
+  width: 32rem;
+  font-family: Bauhaus;
   text-align: justify;
-  font-size: 70px;
+  font-size: 45px;
   color: white;
   font-style: normal;
 }
@@ -57,6 +124,13 @@ form.enrollment input[type="text"] {
   border: 1px solid grey;
   float: center;
   background: #f1f1f1;
+}
+
+svg {
+  width:100%;
+}
+.fa {
+  height: 1.5rem;
 }
 
 /* Style the submit button */
