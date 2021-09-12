@@ -53,12 +53,12 @@
     </section>
 
     <!-- Banner Section  -->
-    <section class="banner" >
-         <div class="container">
-        <div class="centered"><span class="stretch">The  Placement  Cell</span></div>
-            <img src="images/banner.png" class="img-fluid" >
+    <section class="banner">
+        <div class="container">
+            <div class="centered"><span class="stretch">The Placement Cell</span></div>
+            <img src="images/banner.png" class="img-fluid">
         </div>
-        
+
 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 1400 250">
             <path fill="white" fill-opacity="1"
@@ -67,91 +67,89 @@
         </svg>
     </section>
     <div class="sub-container ">
-<div class="row" style="margin-right: 0px;">
-    <h3 class="ms-5 col-md-6"><span>Enter Your Enrollment Number to continue</span></h3>
+        <div class="row" style="margin-right: 0px;">
+            <h3 class="ms-5 col-md-6"><span>Enter Your Enrollment Number to continue</span></h3>
 
-    <div class="container-fluid mt-4 m-0 col-md-6" >
-        <div class="row d-flex justify-content-center">
+            <div class="container-fluid mt-4 m-0 col-md-6">
+                <div class="row d-flex justify-content-center">
                     <div class="d-flex justify-content-center px-5">
-                        <div class="search"> <input type="text" class="search-input" placeholder="Search..." name=""> 
-                            <a href="#" class="search-icon"> 
-                            <i class="fa fa-search"></i> </a> 
+                        <div class="search">
+                            <form name="myForm" onsubmit="return validateForm()">
+                                <input type="text" class="search-input" placeholder="Search..." name="enter">
+                                <input type="submit" class="search-icon">
+                                <i class="fa fas-search"></i> </input>
+                            </form>
                         </div>
                     </div>
-                    </div>
-                    </div>
-    <div class="col-md-3">
-<img src="images/girl.png" style="margin-top: -28rem;padding-left: 8rem;" ></img>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src="images/girl.png" style="margin-top: -28rem;padding-left: 8rem;"></img>
+            </div>
+
+
+
+            <div class="col-md-3">
+                <img src="images/boy.png" style="margin-top: -28rem;margin-left: -15rem;"></img>
+            </div>
+        </div>
     </div>
-    
+
+
     <script>
         function validateForm() {
-          let x = document.forms["myForm"]["enter"].value;
-          if (x == "") {
-            alert("Name must be filled out");
-            return false;
-          }
-          else { buttonclickhandler(x);return false;  }
+            let x = document.forms["myForm"]["enter"].value;
+            if (x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            else { buttonclickhandler(); return false; }
         }
-        function buttonclickhandler(x) {
-  console.log("a");
-  // Instantiate an new XHR Object
-  const xhr = new XMLHttpRequest();
+        function buttonclickhandler() {
+            let x = document.forms["myForm"]["enter"].value;
+            console.log(x);
+            // Instantiate an new XHR Object
+            const xhr = new XMLHttpRequest();
 
-  // Open an obejct (GET/POST, PATH,
-  // ASYN-TRUE/FALSE)
-  xhr.open("GET", 
-"https://api.ipuresults.xyz/v1/results/".x, true);
+            // Open an obejct (GET/POST, PATH,
+            // ASYN-TRUE/FALSE)
+            xhr.open("GET",
+                "https://api.ipuresults.xyz/v1/results/50555202718", true);
 
 
 
 
-  // When response is ready
-  xhr.onload = function () {
-      if (this.status === 200) {
+            // When response is ready
+            xhr.onload = function () {
+                if (this.status === 200) {
 
-          // Changing string data into JSON Object
-          obj = JSON.parse(this.responseText);
-alert(obj.data);
-          // Getting the ul element
-        //   let list = document.getElementById("list");
-        //   str = ""
-        //   for (key in obj.data) {
-        //       str += `<li>${obj.data[key].employee_name}</li>`;
-        //   }
-        //   list.innerHTML = str;
-      }
-      else {
-          console.log("File not found");
-      }
-  }
+                    // Changing string data into JSON Object
+                    obj = JSONP.parse(this.responseText);
+                    alert(obj.data);
+                    // Getting the ul element
+                    //   let list = document.getElementById("list");
+                    //   str = ""
+                    //   for (key in obj.data) {
+                    //       str += `<li>${obj.data[key].employee_name}</li>`;
+                    //   }
+                    //   list.innerHTML = str;
+                }
+                else {
+                    console.log("File not found");
+                }
+            }
 
-  // At last send the request
-  xhr.send();
-}
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-integrity=
-"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-crossorigin="anonymous">
-</script>
-
-<script src=
-"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-integrity=
-"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-crossorigin="anonymous">
-</script>
-            
-    <div class="col-md-3">
-        <img src="images/boy.png" style="margin-top: -28rem;margin-left: -15rem;"></img>
-     </div>
-    </div>
-    </div>
-
-    <script>
-
+            // At last send the request
+            xhr.send();
+        }
     </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
