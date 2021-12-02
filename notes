@@ -1,0 +1,2 @@
+connection file contains php connection string for mysql db connection.
+we created a connection variable in it thatll be used for mysql querries.

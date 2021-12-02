@@ -2,6 +2,18 @@
 <html lang="en">
 
 <head>
+<?php
+session_start();
+require 'connection.php';
+require 'insert_user.php';
+require 'login.php';
+// IF USER LOGGED IN
+
+if(isset($_SESSION['u_id'])){
+  header('Location: index.php');
+}
+
+?>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,6 +78,9 @@
             </path>
         </svg>
     </section>
+    <section id="changeable">
+
+    
     <div class="sub-container ">
         <div class="row" style="margin-right: 0px;">
             <h3 class="ms-5 col-md-6"><span>Enter Your Enrollment Number to continue</span></h3>
@@ -75,7 +90,7 @@
                     <div class="d-flex justify-content-center px-5">
                         <div class="search">
                             <form name="myForm" onsubmit="return validateForm()">
-                                <input type="text" class="search-input" placeholder="Search..." name="enter">
+                                <input type="text" class="search-input" placeholder="Search..." name="enum">
                                 <input type="submit" class="search-icon">
                                 <i class="fa fas-search"></i> </input>
                             </form>
@@ -94,62 +109,85 @@
             </div>
         </div>
     </div>
+    </section>
 
 
-    <script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+ <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+        <script>
+            
         function validateForm() {
-            let x = document.forms["myForm"]["enter"].value;
-            if (x == "") {
-                alert("Name must be filled out");
+            
+            const z= document.forms["myForm"]["enum"].value;
+            
+            if (z == "") {
+                alert("enrollment number must be filled out");
                 return false;
             }
             else { buttonclickhandler(); return false; }
         }
         function buttonclickhandler() {
-            let x = document.forms["myForm"]["enter"].value;
-            console.log(x);
-            // Instantiate an new XHR Object
-            const xhr = new XMLHttpRequest();
-
-            // Open an obejct (GET/POST, PATH,
-            // ASYN-TRUE/FALSE)
-            xhr.open("GET",
-                "https://api.ipuresults.xyz/v1/results/50655202718", true);
-
-
-
-
-            // When response is ready
-            xhr.onload = function () {
-                if (this.status === 200) {
-
-                    // Changing string data into JSON Object
-                    obj = JSONP.parse(this.responseText);
-                    alert(obj.data);
-                    // Getting the ul element
-                    //   let list = document.getElementById("list");
-                    //   str = ""
-                    //   for (key in obj.data) {
-                    //       str += `<li>${obj.data[key].employee_name}</li>`;
-                    //   }
-                    //   list.innerHTML = str;
-                }
-                else {
-                    console.log("File not found");
-                }
+            
+            const z= document.forms["myForm"]["enum"].value;
+           
+            
+            console.log(z);
+            
+            $.ajax({
+        url: "matchenum.php",
+        data: {enum: z},
+        type: "POST",
+        success:function(data){
+            $("#changeable").html(data);
+            
+        },
+        error:function (data){
+          console.log(data);
+        }
+        });
+        
+        return false;
+        }
+        
+        function validateFormRegister() {
+            
+            let x = document.forms["regForm"]["email"].value;
+            let y = document.forms["regForm"]["password"].value;
+            if (x == ""|| y=="") {
+                alert("All fields must be filled out");
+                return false;
             }
+            else { buttonclickhandlers(); return false; }
+        }
+        function buttonclickhandlers() {
+            
 
-            // At last send the request
-            xhr.send();
+            let x = document.forms["regForm"]["email"].value;
+            let y = document.forms["regForm"]["password"].value;
+            let z = document.forms["regForm"]["enum"].value;
+            console.log(z);
+            
+            $.ajax({
+        url: "insert_user.php",
+        data: {email: x,password:y,enum:z},
+        type: "POST",
+        success:function(data){
+           alert(data);
+        },
+        error:function (data){
+          console.log(data);
+        }
+        });
+        
+        return false;
         }
     </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-        </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-        </script>
 </body>
 
 </html>
