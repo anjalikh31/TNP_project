@@ -5,8 +5,7 @@
 <?php
 session_start();
 require 'connection.php';
-require 'insert_user.php';
-require 'login.php';
+
 // IF USER LOGGED IN
 
 if(isset($_SESSION['u_id'])){
@@ -176,6 +175,38 @@ if(isset($_SESSION['u_id'])){
             $.ajax({
         url: "insert_user.php",
         data: {email: x,password:y,enum:z},
+        type: "POST",
+        success:function(data){
+           alert(data);
+        },
+        error:function (data){
+          console.log(data);
+        }
+        });
+        
+        return false;
+        }
+        function validateFormLogin() {
+            
+            let x = document.forms["logForm"]["email"].value;
+            let y = document.forms["logForm"]["password"].value;
+            if (x == ""|| y=="") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            else { buttonclickhandel(); return false; }
+        }
+        function buttonclickhandel() {
+            
+
+            let x = document.forms["logForm"]["email"].value;
+            let y = document.forms["logForm"]["password"].value;
+            
+            
+            
+            $.ajax({
+        url: "login.php",
+        data: {email: x,password:y},
         type: "POST",
         success:function(data){
            alert(data);

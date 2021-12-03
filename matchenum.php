@@ -13,9 +13,9 @@ if(mysqli_num_rows($query) > 0){
             <div class='row d-flex justify-content-center'>
                 <div class='d-flex justify-content-center px-5'>
                     <div class='search'>
-                        <form name='myForm' onsubmit='return validateFormLogin()'>
+                        <form name='logForm' action='login.php' method='post' >
                             <input type='text' class='search-input' placeholder='Email' name='email'>
-                            <input type='text' class='search-input' placeholder='password' name='password'>
+                            <input type='password' class='search-input' placeholder='password' name='password'>
                             <input type='submit' class='search-icon'>
                             <i class='fa fas-search'></i> </input>
                         </form>
