@@ -99,7 +99,7 @@ li {font-size:20px; list-style:none!important;}
                             <a class="nav-link" href="#">Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">My profile</a>
+                            <a class="nav-link" href="profile">My profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="logout.php">Logout</a>
@@ -133,8 +133,15 @@ li {font-size:20px; list-style:none!important;}
 </div>
 </section>
 <section style="text-align:center; padding:20px 20px; " >
-<div style="border-radius:25px; padding:20px;  background-image:linear-gradient(to right, #0066b2, #5072a7); color:white;">
+<div style="border-radius:25px; padding:40px 20px;  background-image:linear-gradient(to right, #0066b2, #5072a7); color:white;">
+
 <h1>Recommended Opportunities</h1>
+<div class="btn-group btn-group-lg " style="transform:scale(1.3); margin:20px 0;">
+  <button type="button" class="btn  btn-default">Internship</button>
+  <button type="button" class="btn btn-default">Jobs</button>
+  <button type="button" class="btn btn-default">Others</button>
+</div>
+
 <div class="posts container">
 <ol id="results"></ol>
 
