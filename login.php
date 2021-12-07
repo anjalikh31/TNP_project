@@ -20,7 +20,7 @@ $user_db_pass = $row['password'];
 	
 	// VERIFY PASSWORD
 	$check_password = password_verify($_POST['password'], $user_db_pass);
-	echo $user_db_pass;
+	echo $user_db_pass ;
 	if($check_password){
 	
 	$query1 = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email'");
