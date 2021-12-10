@@ -30,7 +30,7 @@ else{
 -- */
 
 $user_hash_password = password_hash($_POST['password'],PASSWORD_DEFAULT);
-
+//$user_hash_password=$_POST['password'];
 // INSER USER INTO THE DATABASE
 $insert_user = mysqli_query($conn, "INSERT INTO `users` ( email, password,enum) VALUES ( '$email', '$user_hash_password','$enum')");
 

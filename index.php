@@ -1,8 +1,16 @@
+<?php
+session_start();
+require 'connection.php';
 
+// IF USER LOGGED IN
 
-
-
-  <link rel="stylesheet" href="style.css" />
+if(isset($_SESSION['u_id'])){
+  header('Location: index.php');
+}
+?>
+<html>
+<head>
+<link rel="stylesheet" href="style.css" />
  <!-- Latest compiled and minified CSS -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -14,8 +22,6 @@
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
         integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
     <title>The Placement Cell</title>
-
-
 </head>
 <style>
  
@@ -149,7 +155,7 @@ li {font-size:20px; list-style:none!important;}
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
-    $('#nc').click(function(){$('#notice').css('display','none') });
+$('#nc').click(function(){$('#notice').css('display','none') });
 $(function() {
 loadResults(0);
 $('.posts').scroll(function() {
@@ -177,4 +183,5 @@ $("#loading").hide();
 });
 };
 });
+
 </script>

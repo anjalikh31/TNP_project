@@ -202,8 +202,7 @@ if(isset($_SESSION['u_id'])){
             let x = document.forms["logForm"]["email"].value;
             let y = document.forms["logForm"]["password"].value;
             
-            
-            
+    
             $.ajax({
         url: "login.php",
         data: {email: x,password:y},
