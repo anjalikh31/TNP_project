@@ -41,7 +41,7 @@ if(isset($_SESSION['u_id'])){
     <section class="header">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="images/R.png" /></a>
+                <a class="navbar-brand" href="#"><img src="img/R.png" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
@@ -67,7 +67,7 @@ if(isset($_SESSION['u_id'])){
     <section class="banner">
         <div class="container">
             <div class="centered"><span class="stretch">The Placement Cell</span></div>
-            <img src="images/banner.png" class="img-fluid">
+            <img src="img/banner.png" class="img-fluid">
         </div>
 
 
@@ -98,13 +98,13 @@ if(isset($_SESSION['u_id'])){
                 </div>
             </div>
             <div class="col-md-3">
-                <img src="images/girl.png" style="margin-top: -28rem;padding-left: 8rem;"></img>
+                <img src="img/girl.png" style="margin-top: -28rem;padding-left: 8rem;"></img>
             </div>
 
 
 
             <div class="col-md-3">
-                <img src="images/boy.png" style="margin-top: -28rem;margin-left: -15rem;"></img>
+                <img src="img/boy.png" style="margin-top: -28rem;margin-left: -15rem;"></img>
             </div>
         </div>
     </div>

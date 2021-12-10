@@ -21,6 +21,12 @@ $user_db_pass = $row['password'];
 
 	
 	// VERIFY PASSWORD
+<<<<<<< HEAD
+=======
+	$check_password = password_verify($_POST['password'], $user_db_pass);
+	echo $user_db_pass ;
+	if($check_password){
+>>>>>>> a84558d66ca4ffc3a1b8acd442e66db9bd4e00af
 	
 	//echo $check_password;
 	echo $pass;

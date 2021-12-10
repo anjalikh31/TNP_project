@@ -1,7 +1,7 @@
 <?php
 require_once('connection.php');
 $limitStart = $_POST['limitStart'];
-$limitCount = 12; // Set how much data you have to fetch on each request
+$limitCount = 8; // Set how much data you have to fetch on each request
 if(isset($limitStart ) || !empty($limitStart)) {
 $query = "SELECT id, title, image,description,package,role FROM vacancies ORDER BY id limit $limitStart, $limitCount";
 $result = mysqli_query($conn, $query);
